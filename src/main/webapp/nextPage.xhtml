@@ -1,13 +1,19 @@
-<!--
-  Created by IntelliJ IDEA.
-  User: macbookpro
-  Date: 11/12/2025
-  Time: 1:12 pm
-  To change this template use File | Settings | File Templates.
--->
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
-<html>
-  <head><title>$Title$</title></head>
-  <body>$END$</body>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+
+    <h:body>
+        <f:metadata>
+            <f:viewParam name="message" value="#{nextPageBean.message}" />
+        </f:metadata>
+        <h:outputText id="output" value="My name is: #{demoBean.name}"
+                      rendered="#{not empty demoBean.name}"
+                      style="color: blue; font-weight: bold; display: block; margin-top: 20px;" />
+    </h:body>
+
 </html>
-</jsp:root>
+
+
+

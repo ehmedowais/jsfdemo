@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+<h:head>
+    <title>Demo Application</title>
+</h:head>
+<h:body>
+    <h1>Welcome to Tomcat 11 + JSF 4.0!</h1>
+
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="name" value="Enter your name:" />
+            <h:inputText id="name" value="#{demoBean.name}" />
+
+            <h:commandButton value="Submit" action="#{demoBean.submit}">
+                <f:ajax execute="@form" render="output" />
+            </h:commandButton>
+            <h:commandButton outcome="nextPage?message=#{demoBean.name}" value="Lets Go" >
+                <f:param name="message" value="#{demoBean.name}" />
+            </h:commandButton>
+
+
+        </h:panelGrid>
+
+        <h:outputText id="output" value="#{demoBean.message}"
+                      rendered="#{not empty demoBean.message}"
+                      style="color: green; font-weight: bold; display: block; margin-top: 20px;" />
+    </h:form>
+</h:body>
+</html>
